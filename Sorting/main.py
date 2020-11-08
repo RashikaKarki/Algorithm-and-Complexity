@@ -1,6 +1,5 @@
 import random
 import time
-from sorting import insertion_sort, merge, mergesort
 import math
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import subplot, figure
@@ -11,17 +10,17 @@ merge_sort_time = []
 
 size = []
 
-def insertion_sort(list):
+def insertionsort(list):
         for index in range(1, len(list)):
                 value = list[index]
                 i = index - 1
                 while i>=0:
-                if value < list[i]:
-                        list[i+1] = list[i]
-                        list[i] = value
-                        i = i-1
-                else:
-                        break
+                        if value < list[i]:
+                                list[i+1] = list[i]
+                                list[i] = value
+                                i = i-1
+                        else:
+                                break
         return list
 
 def mergesort(data,p,r):
@@ -54,7 +53,7 @@ def insertion():
         for i in range(100,1000,10):
                 list = random.sample(range(1000),i)
                 start = time.time()
-                sorted_list = insertion_sort(list)
+                sorted_list = insertionsort(list)
                 end = time.time()
                 t = end - start
                 insert_time.append(t)
@@ -71,6 +70,10 @@ def merge():
         
 
 insertion()
+data = [9,8,5,1,3]
+output = [1,3,5,8,9]
+data = mergesort(data,0,len(data))
+print(data)
 
 subplot(1,2,1)
 plt.plot(size,insert_time)
