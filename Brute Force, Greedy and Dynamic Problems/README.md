@@ -63,4 +63,4 @@ Dynamic-0-1-knapsack (v, w, W):
 ```
 
 Test:
-![Tests](https://github.com/RashikaKarki/Algorithm-and-Complexity/blob/master/Brute-Force,-Greedy-and-Dynamic-Problems/test-run-ss.PNG)
+![Tests](https://github.com/RashikaKarki/Algorithm-and-Complexity/blob/master/Brute%20Force%2C%20Greedy%20and%20Dynamic%20Problems/tests.PNG)
