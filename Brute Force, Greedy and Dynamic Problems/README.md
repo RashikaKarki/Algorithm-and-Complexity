@@ -22,12 +22,44 @@ bruteforce(p, w, c):
         return sol
 ```
 
+```
+bruteforcefractional(p, w, c):
+    if len(p) == len(w):
+        n = len(p)
+    else:
+        throw error
+    let maxProfit = 0
+    let bit_strings = List of bitstrings of int n
+    while b in bit_strings:
+        do i1 = [i for i,x in enumerate(b) if x == '1']
+        do i0 = [i for i,x in enumerate(b) if x == '0']
+        let nonfracprofit = 0
+        let weight = 0
+        while  i in i1:
+            let nonfracprofit += p[i]
+            let weight += w[i]
+        let fractionProfit = 0
+        let newB = b
+        if weight < c then
+            let maxI = 0
+            while i is in i0:
+                let r = (w[i], c - weight )[(c - weight < w[i])] 
+                let f = (p[i]/w[i])*r
+                if f > fractionProfit then
+                    let fractionProfit = f
+                    let maxI = i 
+        let totalProfit = fractionProfit + nonfracprofit
+        if weight <= c and totalProfit >= maxProfit then
+            let maxProfit = totalProfit
+    return maxProfit
+```
 - **Greedy method**
 
 
 Pseudo Code
 
 ```
+greedy(p, w, c)
     for i = 1 to n 
         do x[i] = 0 
     weight = 0 
@@ -48,15 +80,16 @@ Pseudo Code
 Pseudo Code
 
 ```
-Dynamic-0-1-knapsack (v, w, W):
+Dynamic-0-1-knapsack (p, w, W):
+    n = len(p)
     for w = 0 to W do 
-    c[0, w] = 0 
+        c[0, w] = 0 
     for i = 1 to n do 
-    c[i, 0] = 0 
+        c[i, 0] = 0 
     for w = 1 to W do 
         if wi ≤ w then 
             if vi + c[i-1, w-wi] then 
-                c[i, w] = vi + c[i-1, w-wi] 
+                c[i, w] = p[i] + c[i-1, w-wi] 
             else c[i, w] = c[i-1, w] 
         else 
             c[i, w] = c[i-1, w] 

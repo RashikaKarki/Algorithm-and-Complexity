@@ -1,6 +1,6 @@
 import unittest
 from greedy import greedy
-from bruteforce import bruteforce, get_strings
+from bruteforce import bruteforce, get_strings, bruteforcefractional
 from dynamic import dynamic
 from greedy import greedy
 
@@ -12,6 +12,7 @@ class TestStringMethods(unittest.TestCase):
             bruteforce([1,2], [1], 2)
         self.assertEqual(bruteforce([1,2,3], [4, 5, 1], 4), 3)
         self.assertEqual(bruteforce([1,2,3], [4, 5, 6], 3), 0)
+        self.assertEqual(bruteforcefractional([60, 100, 120] , [10, 20, 30] , 50), 240)
 
     def test_greedy(self):
         with self.assertRaises(Exception):

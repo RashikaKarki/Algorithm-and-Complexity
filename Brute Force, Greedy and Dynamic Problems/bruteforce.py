@@ -22,10 +22,34 @@ def bruteforce(p, w, m):
         raise Exception("The list should be of same size")
 
 
-if __name__ == "__main__":
-    p = [1,2,3]
-    w = [4,5,1]
-    m = 4
+def bruteforcefractional(p, w, c):
+    if len(p) == len(w):
+        n = len(p)
+        maxProfit = 0
+        bit_strings = get_strings(n)
+        for b in bit_strings:
+            i1 = [i for i,x in enumerate(b) if x == '1']
+            i0 = [i for i,x in enumerate(b) if x == '0']
+            nprofit = 0
+            weight = 0
+            for i in i1:
+                nprofit += p[i]
+                weight += w[i]
+            fractionProfit = 0
+            newB = b
+            if weight < c :
+                maxI = 0
+                for i in i0:
+                    r = (w[i], c - weight )[(c - weight < w[i])] 
+                    f = (p[i]/w[i])*r
+                    if f > fractionProfit:
+                        fractionProfit = f
+                        maxI = i 
+            totalProfit = fractionProfit + nprofit
+            if weight <= c and totalProfit >= maxProfit:
+                maxProfit = totalProfit
+        return maxProfit
+    else:
+        raise Exception("The list should be of same size")
 
-    bruteforce(p,w,m)
 
