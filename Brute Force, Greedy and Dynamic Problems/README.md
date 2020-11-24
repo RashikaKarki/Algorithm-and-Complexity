@@ -1,9 +1,10 @@
 # Brute Force, Greedy and Dynamic Problems
 
-### Solving Knapsack problem using different algorithm design strategies such as:
+## Solving Knapsack problem using different algorithm design strategies such as:
 
-- **Brute-force method**
+###  1. **Brute-force method**
 
+- #### Knapsack 0/1
 
 Pseudo Code
 
@@ -21,6 +22,12 @@ bruteforce(p, w, c):
                 sol = profit
         return sol
 ```
+
+> [Python implementation](https://github.com/RashikaKarki/Algorithm-and-Complexity/blob/14288a180f08624fec74498e694c7d9f5ea37bf1/Brute%20Force%2C%20Greedy%20and%20Dynamic%20Problems/bruteforce.py#L10)
+
+- #### Knapsack Fractional
+
+Pseudo Code
 
 ```
 bruteforcefractional(p, w, c):
@@ -53,8 +60,11 @@ bruteforcefractional(p, w, c):
             let maxProfit = totalProfit
     return maxProfit
 ```
-- **Greedy method**
+> [Python implementation](https://github.com/RashikaKarki/Algorithm-and-Complexity/blob/14288a180f08624fec74498e694c7d9f5ea37bf1/Brute%20Force%2C%20Greedy%20and%20Dynamic%20Problems/bruteforce.py#L25)
 
+### 2. **Greedy method**
+
+- #### Knapsack Fractional
 
 Pseudo Code
 
@@ -74,8 +84,11 @@ greedy(p, w, c)
     return x
 ```
 
-- **Dynamic programming**
+> [Python implementation](https://github.com/RashikaKarki/Algorithm-and-Complexity/blob/master/Brute%20Force%2C%20Greedy%20and%20Dynamic%20Problems/greedy.py)
 
+### 3. **Dynamic programming**
+
+- #### Knapsack 0/1
 
 Pseudo Code
 
@@ -95,5 +108,8 @@ Dynamic-0-1-knapsack (p, w, W):
             c[i, w] = c[i-1, w] 
 ```
 
-Test:
+> [Python implementation](https://github.com/RashikaKarki/Algorithm-and-Complexity/blob/master/Brute%20Force%2C%20Greedy%20and%20Dynamic%20Problems/dynamic.py)
+
+### Tests:
 ![Tests](https://github.com/RashikaKarki/Algorithm-and-Complexity/blob/master/Brute%20Force%2C%20Greedy%20and%20Dynamic%20Problems/tests.PNG)
+> [Python code](https://github.com/RashikaKarki/Algorithm-and-Complexity/blob/master/Brute%20Force%2C%20Greedy%20and%20Dynamic%20Problems/tests.py)
