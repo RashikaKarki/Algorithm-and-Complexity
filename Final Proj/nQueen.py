@@ -3,7 +3,6 @@ import random
 import time
 import plotly.express as px
 
-
 def get_board(n):
     #Returns an n by n board
     board = ["x"]*n
@@ -21,23 +20,24 @@ def solve(board, col, n):
             if col == n-1:
                 add_solution(board)
                 board[i][col] = "x"
-                return
             solve(board, col+1, n)
             board[i][col] = "x"
     
             
 def is_safe(board, row, col, n):
     # Checking if it's safe to place a queen at board[x][y]
-    # Checking row on left side
+    # Checking row left side
     for j in range(col):
         if board[row][j] == "Q":
             return False
     i, j = row, col
+    # Checking upper diag 
     while i >= 0 and j >= 0:
         if board[i][j] == "Q":
             return False
         i=i-1
         j=j-1
+    # Checking lower diag 
     x, y = row,col
     while x < n and y >= 0:
         if board[x][y] == "Q":
@@ -54,26 +54,22 @@ def add_solution(board):
 
 
 if __name__ == "__main__":
-
     timer = []
-    for i in range(4,14):
+    for i in range(4,13):
         print("For n = ", i)
         #Returns a square board of nxn dimension
         board = get_board(i)
-
         #Empty list of all possible solutions
         solutions = []
-
         #Solving using backtracking
         start_time = time.time()
         solve(board, 0, i)
         timer.append(time.time() - start_time)
         print("Time Taken: ", time.time() - start_time)
-        print("Total number of solutions=", len(solutions))
-
+        print(len(solutions))
         print()
 
-    fig = px.line(x=list(range(4,14)), 
+    fig = px.line(x=list(range(4,13)), 
                   y=timer,
                   labels={"x": "N Queen",
                           "y": "Time(s)"},
